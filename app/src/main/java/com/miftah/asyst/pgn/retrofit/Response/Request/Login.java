@@ -1,4 +1,4 @@
-package com.miftah.asyst.pgn.retrofit.Response;
+package com.miftah.asyst.pgn.retrofit.Response.Request;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -8,5 +8,6 @@ public class Login {
     String method;
     @SerializedName("param")
     String param;
+
 
 }
