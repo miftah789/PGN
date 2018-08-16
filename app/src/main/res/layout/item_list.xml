@@ -22,7 +22,7 @@
             tools:text="MIFTAHUL JANNAH" />
 
         <TextView
-            android:id="@+id/tv_number"
+            android:id="@+id/tv_serialNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -40,7 +40,7 @@
             tools:text="BANYUWANGI" />
 
         <TextView
-            android:id="@+id/tv_date"
+            android:id="@+id/tv_start_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_address"
@@ -48,7 +48,7 @@
             tools:text="Selasa, 23 Juli 2018" />
 
         <TextView
-            android:id="@+id/tv_id"
+            android:id="@+id/tv_task_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -60,10 +60,10 @@
             tools:text="4443" />
 
         <TextView
-            android:id="@+id/tv_finish"
+            android:id="@+id/tv_finish_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_date"
+            android:layout_below="@+id/tv_start_date"
             android:layout_marginTop="5dp"
             android:background="#ebf3ff"
             android:padding="3dp"
