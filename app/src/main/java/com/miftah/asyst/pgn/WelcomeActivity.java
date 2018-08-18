@@ -51,10 +51,9 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     public void getData() {
-        DataModel dataModel = new DataModel();
 
         ApiServices apiServices = ApiClient.newInstance(getApplicationContext()).create(ApiServices.class);
-        Call<DataResponse> call = apiServices.getData(dataModel);
+        Call<DataResponse> call = apiServices.getData();
 
         call.enqueue(new Callback<DataResponse>() {
             @Override
@@ -87,8 +86,8 @@ public class WelcomeActivity extends AppCompatActivity {
         int id = item.getItemId();
         switch (id) {
             case R.id.main_exit:
-                sessionUtil.saveUsername("");
                 sessionUtil.savePassword("");
+                sessionUtil.saveUsername("");
                 Intent intent = new Intent(this, MainActivity.class);
                 finish();
                 break;

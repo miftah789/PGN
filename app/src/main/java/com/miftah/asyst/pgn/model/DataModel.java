@@ -65,5 +65,4 @@ public class DataModel {
     public void setFinishDate(String finishDate) {
         this.finishDate = finishDate;
     }
-
 }

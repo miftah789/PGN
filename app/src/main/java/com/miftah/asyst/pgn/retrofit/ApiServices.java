@@ -1,6 +1,5 @@
 package com.miftah.asyst.pgn.retrofit;
 
-import com.miftah.asyst.pgn.model.DataModel;
 import com.miftah.asyst.pgn.retrofit.Request.LoginRequest;
 import com.miftah.asyst.pgn.retrofit.Response.DataResponse;
 import com.miftah.asyst.pgn.retrofit.Response.LoginResponse;
@@ -16,5 +15,5 @@ public interface ApiServices {
     Call<LoginResponse> getLogin(@Body LoginRequest loginRequest);
 
     @GET("Task/getAllTask")
-    Call<DataResponse> getData(@Body DataModel dataModel);
+    Call<DataResponse> getData();
 }
