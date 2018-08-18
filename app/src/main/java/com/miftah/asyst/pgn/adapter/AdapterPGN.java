@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.miftah.asyst.pgn.R;
 import com.miftah.asyst.pgn.model.DataModel;
+import com.miftah.asyst.pgn.utility.DateUtils;
 
 import java.util.ArrayList;
 
@@ -19,6 +20,35 @@ public class AdapterPGN extends RecyclerView.Adapter<AdapterPGN.MyViewHolderPGN>
     Context mContext;
     ArrayList<DataModel> mListData;
     OnItemClickListener mlistener;
+
+    public AdapterPGN(Context context, ArrayList<DataModel> listData, OnItemClickListener listener) {
+        this.mContext = context;
+        this.mListData = listData;
+        this.mlistener = listener;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull MyViewHolderPGN holder, int position) {
+        final DataModel dataModel = mListData.get(position);
+        holder.tvName.setText(dataModel.getCustomerName());
+        holder.tvAddress.setText(dataModel.getCustomerAddress());
+        if (!dataModel.getFinishDate().isEmpty()) {
+            holder.tvStartDate.setText(DateUtils.formatDate("yyyy-MM-dd", "dd MMMM yyyy", dataModel.getStartDate()));
+        }
+        if (!dataModel.getFinishDate().isEmpty()) {
+            holder.tvFinishDate.setText(DateUtils.formatDate("yyyy-MM-dd", "dd MMMM yyyy", dataModel.getFinishDate()));
+        } else {
+            holder.tvFinishDate.setText("");
+        }
+        holder.tvTaskID.setText(dataModel.getTaskID());
+        holder.tvSerialNumber.setText(dataModel.getSerialNumber());
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mlistener.onItemClick(dataModel);
+            }
+        });
+    }
 
     @NonNull
     @Override
@@ -30,30 +60,15 @@ public class AdapterPGN extends RecyclerView.Adapter<AdapterPGN.MyViewHolderPGN>
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolderPGN holder, int position) {
-        final DataModel dataModel = mListData.get(position);
-        holder.tvName.setText(dataModel.getCustomerName());
-        holder.tvAddress.setText(dataModel.getCustomerAddress());
-        holder.tvStartDate.setText(dataModel.getStartDate());
-        holder.tvFinishDate.setText(dataModel.getFinishDate());
-        holder.tvTaskID.setText(dataModel.getTaskID());
-        holder.tvSerialNumber.setText(dataModel.getSerialNumber());
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mlistener.onItemClick(dataModel);
-            }
-        });
-    }
-
-    @Override
     public int getItemCount() {
+
         return 0;
     }
 
     public interface OnItemClickListener {
-        void onItemClick(DataModel dataModel);
+        void onItemClick(DataModel data);
     }
+
 
     public class MyViewHolderPGN extends RecyclerView.ViewHolder {
 

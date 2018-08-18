@@ -1,12 +1,14 @@
 package com.miftah.asyst.pgn.retrofit.Response;
 
-import com.miftah.asyst.pgn.model.UserModel;
+import com.miftah.asyst.pgn.model.DataModel;
 
-public class LoginResponse {
+import java.util.ArrayList;
+
+public class DataResponse {
 
     String status;
     String message;
-    UserModel data;
+    ArrayList<DataModel> data;
 
     public String getStatus() {
         return status;
@@ -24,12 +26,11 @@ public class LoginResponse {
         this.message = message;
     }
 
-    public UserModel getData() {
+    public ArrayList<DataModel> getData() {
         return data;
     }
 
-    public void setData(UserModel data) {
+    public void setData(ArrayList<DataModel> data) {
         this.data = data;
     }
 }
-
